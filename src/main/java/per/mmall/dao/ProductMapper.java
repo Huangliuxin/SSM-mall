@@ -1,6 +1,9 @@
 package per.mmall.dao;
 
+import org.apache.ibatis.annotations.Param;
 import per.mmall.pojo.Product;
+
+import java.util.List;
 
 public interface ProductMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +17,9 @@ public interface ProductMapper {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    List<Product> selectList();
+
+    List<Product> selectByNameAndProductId(@Param("productName")String productName,@Param("productId")Integer productId);
+
 }
